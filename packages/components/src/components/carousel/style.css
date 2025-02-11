@@ -1,0 +1,67 @@
+.rc-llm-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.rc-llm-carousel-content {
+  display: flex;
+  width: 100%;
+}
+
+.rc-llm-carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.rc-llm-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.rc-llm-carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.rc-llm-carousel-arrow-prev {
+  left: 16px;
+}
+
+.rc-llm-carousel-arrow-next {
+  right: 16px;
+}
+
+.rc-llm-carousel-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.rc-llm-carousel-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rc-llm-carousel-indicator.active {
+  background: white;
+}

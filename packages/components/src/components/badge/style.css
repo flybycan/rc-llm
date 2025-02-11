@@ -1,0 +1,74 @@
+:root {
+  --rc-llm-color-primary: #1677ff;
+  --rc-llm-color-success: #52c41a;
+  --rc-llm-color-warning: #faad14;
+  --rc-llm-color-danger: #ff4d4f;
+  --rc-llm-badge-size: 20px;
+  --rc-llm-badge-dot-size: 8px;
+}
+
+.rc-llm-badge-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.rc-llm-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--rc-llm-badge-size);
+  height: var(--rc-llm-badge-size);
+  padding: 0 6px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transform: translate(50%, -50%);
+}
+
+.rc-llm-badge-dot {
+  width: var(--rc-llm-badge-dot-size);
+  height: var(--rc-llm-badge-dot-size);
+  min-width: var(--rc-llm-badge-dot-size);
+  padding: 0;
+  border-radius: 50%;
+}
+
+.rc-llm-badge-standalone {
+  position: relative;
+  transform: none;
+}
+
+.rc-llm-badge-top-right {
+  .rc-llm-badge {
+    top: 0;
+    right: 0;
+  }
+}
+
+.rc-llm-badge-top-left {
+  .rc-llm-badge {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.rc-llm-badge-bottom-right {
+  .rc-llm-badge {
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+  }
+}
+
+.rc-llm-badge-bottom-left {
+  .rc-llm-badge {
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+  }
+}

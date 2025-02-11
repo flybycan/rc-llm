@@ -1,0 +1,19 @@
+{
+  "name": "rc-llm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "React移动端UI组件库",
+  "scripts": {
+    "dev": "pnpm -r run dev",
+    "build": "pnpm -r run build",
+    "test": "pnpm -r run test"
+  },
+  "keywords": [
+    "react",
+    "mobile",
+    "components",
+    "ui-library"
+  ],
+  "author": "",
+  "license": "MIT"
+}
