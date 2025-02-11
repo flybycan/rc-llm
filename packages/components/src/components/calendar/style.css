@@ -1,0 +1,100 @@
+:root {
+  --rc-llm-calendar-primary-color: #1677ff;
+  --rc-llm-calendar-text-color: #333;
+  --rc-llm-calendar-border-color: #f0f0f0;
+  --rc-llm-calendar-background-color: #fff;
+  --rc-llm-calendar-selected-background: #e6f4ff;
+  --rc-llm-calendar-disabled-color: #ccc;
+  --rc-llm-calendar-other-month-color: #999;
+}
+
+.rc-llm-calendar {
+  width: 100%;
+  background-color: var(--rc-llm-calendar-background-color);
+  border: 1px solid var(--rc-llm-calendar-border-color);
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.rc-llm-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.rc-llm-calendar-current-month {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--rc-llm-calendar-text-color);
+}
+
+.rc-llm-calendar-arrow {
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: var(--rc-llm-calendar-text-color);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.rc-llm-calendar-arrow:hover {
+  background-color: var(--rc-llm-calendar-border-color);
+}
+
+.rc-llm-calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+}
+
+.rc-llm-calendar-weekday {
+  text-align: center;
+  font-size: 14px;
+  color: var(--rc-llm-calendar-text-color);
+  padding: 8px 0;
+}
+
+.rc-llm-calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.rc-llm-calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--rc-llm-calendar-text-color);
+}
+
+.rc-llm-calendar-day:hover {
+  background-color: var(--rc-llm-calendar-border-color);
+}
+
+.rc-llm-calendar-day-other-month {
+  color: var(--rc-llm-calendar-other-month-color);
+}
+
+.rc-llm-calendar-day-selected {
+  background-color: var(--rc-llm-calendar-selected-background);
+  color: var(--rc-llm-calendar-primary-color);
+}
+
+.rc-llm-calendar-day-selected:hover {
+  background-color: var(--rc-llm-calendar-selected-background);
+}
+
+.rc-llm-calendar-date {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

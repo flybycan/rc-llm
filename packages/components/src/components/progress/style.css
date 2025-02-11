@@ -1,0 +1,66 @@
+:root {
+  --rc-llm-progress-bg-color: #f5f5f5;
+  --rc-llm-progress-text-color: rgba(0, 0, 0, 0.88);
+}
+
+.rc-llm-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rc-llm-progress.small .rc-llm-progress-outer {
+  height: 4px;
+}
+
+.rc-llm-progress.normal .rc-llm-progress-outer {
+  height: 6px;
+}
+
+.rc-llm-progress.large .rc-llm-progress-outer {
+  height: 8px;
+}
+
+.rc-llm-progress-outer {
+  flex: 1;
+  background-color: var(--rc-llm-progress-bg-color);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.rc-llm-progress-inner {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 100px;
+}
+
+.rc-llm-progress-text {
+  min-width: 2em;
+  color: var(--rc-llm-progress-text-color);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.rc-llm-progress-circle {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rc-llm-progress-circle-background {
+  fill: none;
+  stroke: var(--rc-llm-progress-bg-color);
+}
+
+.rc-llm-progress-circle-path {
+  fill: none;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.rc-llm-progress-circle .rc-llm-progress-text {
+  position: absolute;
+  text-align: center;
+}

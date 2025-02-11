@@ -1,0 +1,75 @@
+:root {
+  --rc-llm-primary-color: #1677ff;
+  --rc-llm-danger-color: #ff4d4f;
+  --rc-llm-disabled-color: #d9d9d9;
+}
+
+.rc-llm-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  touch-action: manipulation;
+  border-radius: 6px;
+}
+
+/* 按钮类型样式 */
+.rc-llm-button-default {
+  background-color: #ffffff;
+  border-color: #d9d9d9;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.rc-llm-button-primary {
+  background-color: var(--rc-llm-primary-color);
+  color: #fff;
+}
+
+.rc-llm-button-danger {
+  background-color: var(--rc-llm-danger-color);
+  color: #fff;
+}
+
+/* 按钮大小样式 */
+.rc-llm-button-small {
+  padding: 0 7px;
+  font-size: 14px;
+  height: 24px;
+}
+
+.rc-llm-button-middle {
+  padding: 4px 15px;
+  font-size: 14px;
+  height: 32px;
+}
+
+.rc-llm-button-large {
+  padding: 6px 15px;
+  font-size: 16px;
+  height: 40px;
+}
+
+/* 禁用状态 */
+.rc-llm-button[disabled] {
+  cursor: not-allowed;
+  background-color: var(--rc-llm-disabled-color);
+  color: rgba(0, 0, 0, 0.25);
+  border-color: #d9d9d9;
+}
+
+/* 悬浮和点击效果 */
+.rc-llm-button:not([disabled]):hover {
+  opacity: 0.8;
+}
+
+.rc-llm-button:not([disabled]):active {
+  opacity: 0.9;
+}

@@ -1,0 +1,119 @@
+:root {
+  --rc-llm-date-picker-border-color: #d9d9d9;
+  --rc-llm-date-picker-bg-color: #fff;
+  --rc-llm-date-picker-text-color: rgba(0, 0, 0, 0.88);
+  --rc-llm-date-picker-hover-bg: #f5f5f5;
+  --rc-llm-date-picker-selected-bg: #1677ff;
+  --rc-llm-date-picker-selected-text: #fff;
+  --rc-llm-date-picker-disabled-bg: #f5f5f5;
+  --rc-llm-date-picker-disabled-text: rgba(0, 0, 0, 0.25);
+}
+
+.rc-llm-date-picker {
+  position: relative;
+  display: inline-block;
+}
+
+.rc-llm-date-picker-input {
+  padding: 4px 11px;
+  border: 1px solid var(--rc-llm-date-picker-border-color);
+  border-radius: 6px;
+  min-width: 200px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.rc-llm-date-picker-input:hover {
+  border-color: var(--rc-llm-date-picker-selected-bg);
+}
+
+.rc-llm-date-picker-input.disabled {
+  background-color: var(--rc-llm-date-picker-disabled-bg);
+  cursor: not-allowed;
+  color: var(--rc-llm-date-picker-disabled-text);
+}
+
+.rc-llm-date-picker-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  padding: 8px;
+  background-color: var(--rc-llm-date-picker-bg-color);
+  border: 1px solid var(--rc-llm-date-picker-border-color);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.rc-llm-date-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 12px;
+}
+
+.rc-llm-date-picker-header button {
+  border: 0;
+  background: none;
+  padding: 0 4px;
+  cursor: pointer;
+  color: var(--rc-llm-date-picker-text-color);
+}
+
+.rc-llm-date-picker-content {
+  border-collapse: collapse;
+}
+
+.rc-llm-date-picker-content th {
+  padding: 0;
+  font-weight: 400;
+  text-align: center;
+  color: var(--rc-llm-date-picker-text-color);
+}
+
+.rc-llm-date-picker-content td {
+  padding: 4px;
+  text-align: center;
+}
+
+.rc-llm-date-picker-cell {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rc-llm-date-picker-cell:hover {
+  background-color: var(--rc-llm-date-picker-hover-bg);
+}
+
+.rc-llm-date-picker-cell.selected {
+  background-color: var(--rc-llm-date-picker-selected-bg);
+  color: var(--rc-llm-date-picker-selected-text);
+}
+
+.rc-llm-date-picker-cell.disabled {
+  background-color: var(--rc-llm-date-picker-disabled-bg);
+  color: var(--rc-llm-date-picker-disabled-text);
+  cursor: not-allowed;
+}
+
+.rc-llm-date-picker-footer {
+  padding: 8px 0 0;
+  text-align: center;
+  border-top: 1px solid var(--rc-llm-date-picker-border-color);
+  margin-top: 8px;
+}
+
+.rc-llm-date-picker-footer button {
+  border: 0;
+  background: none;
+  padding: 0 4px;
+  cursor: pointer;
+  color: var(--rc-llm-date-picker-selected-bg);
+}
