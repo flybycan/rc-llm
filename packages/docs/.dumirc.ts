@@ -4,8 +4,8 @@ import { resolve } from 'path';
 export default defineConfig({
   themeConfig: {
     name: 'RC-LLM',
+    // logo: '/logo.png',
     nav: [
-    //   { title: '指南', link: '/guide' },
       { title: '组件', link: '/components/overview' },
     ],
     socialLinks: {
@@ -19,15 +19,6 @@ export default defineConfig({
     },
     deviceWidth: 375,
     sidebarGroups: {
-      '/guide': [
-        {
-          title: '介绍',
-          children: [
-            { title: '快速上手', link: '/guide' },
-            { title: '开发指南', link: '/guide/development' },
-          ],
-        },
-      ],
       '/components': [
         {
           title: '组件总览',
@@ -40,6 +31,9 @@ export default defineConfig({
           children: [
             { title: 'Button 按钮', link: '/components/button' },
             { title: 'Input 输入框', link: '/components/input' },
+            { title: 'Modal 对话框', link: '/components/modal' },
+            { title: 'Cascader 级联选择', link: '/components/cascader' },
+            { title: 'Upload 上传', link: '/components/upload' },
           ],
         },
         {
@@ -47,6 +41,9 @@ export default defineConfig({
           children: [
             { title: 'Badge 徽标', link: '/components/badge' },
             { title: 'Calendar 日历', link: '/components/calendar' },
+            { title: 'Drawer 抽屉', link: '/components/drawer' },
+            { title: 'Image 图片', link: '/components/image' },
+            { title: 'QRCode 二维码', link: '/components/qrcode' },
           ],
         },
       ],
@@ -60,7 +57,6 @@ export default defineConfig({
     ],
   },
   favicons: ['/logo.png'],
-  logo: '/logo.png',
   outputPath: 'dist',
   alias: {
     '@rc-llm/components': resolve(__dirname, '../components/src')
