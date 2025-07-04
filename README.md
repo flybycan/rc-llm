@@ -1,33 +1,22 @@
-<div align="center">
-
 # RC-LLM
 
-🚀 一个基于 React 18 的移动端组件库 | A Mobile UI Component Library Based on React 18
+🚀 一个基于 React 的移动端UI组件库 | A Mobile UI Component Library Based on React
 
 [![NPM version](https://img.shields.io/npm/v/@rc-llm/components.svg?style=flat)](https://npmjs.org/package/@rc-llm/components)
 [![NPM downloads](https://img.shields.io/npm/dm/@rc-llm/components.svg?style=flat)](https://npmjs.org/package/@rc-llm/components)
 
-</div>
-
 ## ✨ 特性 | Features
 
-- 🚀 基于 React 18 开发
-- 📱 专注移动端交互体验
-- 🎨 提供灵活的样式定制能力
-- 📦 支持按需加载
-- 🔧 使用 TypeScript 开发，提供完整的类型定义
+- 🚀 **基于 React 18**: 充分利用 React 最新特性，提供高性能和流畅的用户体验。
+- 📱 **专注移动端体验**: 组件设计和实现充分考虑移动设备特点，提供优秀的触控和响应式支持。
+- 🎨 **简洁美观的设计风格**: 遵循现代设计趋势，提供一致且美观的视觉效果。
+- 💪 **使用 TypeScript 开发**: 提供完整的类型定义，增强代码的可维护性和开发效率。
+- 📦 **支持按需引入**: 减小打包体积，优化应用加载速度。
 
 ## 📦 安装 | Installation
 
 ```bash
-# NPM
-npm install @rc-llm/components
-
-# Yarn
-yarn add @rc-llm/components
-
-# PNPM
-pnpm add @rc-llm/components
+bun add @rc-llm/components
 ```
 
 ## 🔨 使用 | Usage
@@ -43,46 +32,39 @@ function App() {
 }
 ```
 
-## 🔨 本地开发 | Local Development
+## 💻 本地开发 | Local Development
 
-1. 克隆仓库 | Clone the repository
+1. **克隆仓库** | Clone the repository
+
 ```bash
-git clone https://github.com/your-username/rc-llm.git
+git clone https://github.com/flybycan/rc-llm.git
 cd rc-llm
 ```
 
-2. 安装依赖 | Install dependencies
+2. **安装依赖** | Install dependencies
+
 ```bash
-pnpm install
+bun install
 ```
 
-3. 启动开发服务 | Start development server
+3. **启动开发服务** | Start development server
+
 ```bash
-pnpm dev
+bun run dev
 ```
 
-## 📦 项目结构 | Project Structure
+## 📂 项目结构 | Project Structure
 
 ```
 rc-llm/
   ├── packages/
-  │   ├── components/     # 组件库源码 | Component source code
+  │   ├── components/     # 核心组件库源码 | Core component library source code
   │   └── docs/          # 文档站点 | Documentation site
-  └── package.json
+  ├── package.json        # 项目配置与脚本 | Project configuration and scripts
+  └── README.md           # 项目说明 | Project README
 ```
 
-## 📝 文档 | Documentation
 
-访问我们的[在线文档](https://flybycan.github.io/rc-llm)了解更多信息。
+## 📄 License
 
-Visit our [online documentation](https://flybycan.github.io/rc-llm) for more information.
-
-## 🤝 贡献 | Contributing
-
-欢迎任何形式的贡献！
-
-Contributions of any kind are welcome!
-
-## 📄 许可证 | License
-
-[MIT](./LICENSE)
+[MIT License](LICENSE)

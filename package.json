@@ -4,9 +4,11 @@
   "private": true,
   "description": "React移动端UI组件库",
   "scripts": {
-    "dev": "pnpm -r run dev",
-    "build": "pnpm -r run build",
-    "test": "pnpm -r run test"
+    "dev": "bun run build:components && (cd packages/docs && bun run dev &)",
+    "build": "bun run build:components && bun run build:docs",
+    "build:components": "(cd packages/components && bun run build)",
+    "build:docs": "(cd packages/docs && bun run build)",
+    "test": "bun --cwd packages/components run test"
   },
   "keywords": [
     "react",
@@ -15,5 +17,8 @@
     "ui-library"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
 }

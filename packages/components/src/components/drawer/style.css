@@ -1,0 +1,91 @@
+.rc-llm-drawer-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.rc-llm-drawer {
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-out;
+  z-index: 1001;
+}
+
+.rc-llm-drawer-right {
+  top: 0;
+  right: 0;
+  height: 100%;
+  transform: translateX(100%);
+}
+
+.rc-llm-drawer-right.rc-llm-drawer-open {
+  transform: translateX(0);
+}
+
+.rc-llm-drawer-left {
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: translateX(-100%);
+}
+
+.rc-llm-drawer-left.rc-llm-drawer-open {
+  transform: translateX(0);
+}
+
+.rc-llm-drawer-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(-100%);
+}
+
+.rc-llm-drawer-top.rc-llm-drawer-open {
+  transform: translateY(0);
+}
+
+.rc-llm-drawer-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(100%);
+}
+
+.rc-llm-drawer-bottom.rc-llm-drawer-open {
+  transform: translateY(0);
+}
+
+.rc-llm-drawer-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rc-llm-drawer-close {
+  cursor: pointer;
+  font-size: 24px;
+  color: #999;
+}
+
+.rc-llm-drawer-close:hover {
+  color: #666;
+}
+
+.rc-llm-drawer-body {
+  padding: 24px;
+  height: calc(100% - 65px); /* Adjust based on header height */
+  overflow-y: auto;
+}
+
+.rc-llm-drawer-footer {
+  padding: 10px 24px;
+  border-top: 1px solid #f0f0f0;
+  text-align: right;
+}

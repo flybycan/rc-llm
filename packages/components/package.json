@@ -27,5 +27,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "qrcode.react": "^4.2.0"
+  }
 }
