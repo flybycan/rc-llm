@@ -29,13 +29,11 @@ pnpm add @rc-llm/components
 ## 快速上手
 
 ```jsx
-import { Button } from '@rc-llm/components';
+import { Button } from "@rc-llm/components";
 // import '@rc-llm/components/dist/index.css';
 
 function App() {
-  return (
-    <Button type="primary">Hello RC-LLM!</Button>
-  );
+  return <Button type="primary">Hello RC-LLM!</Button>;
 }
 ```
 
@@ -50,17 +48,20 @@ function App() {
 ### 本地开发
 
 1. 克隆仓库
+
 ```bash
 git clone https://github.com/your-username/rc-llm.git
 cd rc-llm
 ```
 
 2. 安装依赖
+
 ```bash
 pnpm install
 ```
 
 3. 启动开发服务
+
 ```bash
 pnpm dev
 ```

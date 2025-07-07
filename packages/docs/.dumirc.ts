@@ -1,75 +1,96 @@
-import { defineConfig } from 'dumi';
-import { resolve } from 'path';
+import { defineConfig } from "dumi";
+import { resolve } from "path";
 
 export default defineConfig({
   themeConfig: {
-    name: 'RC-LLM',
-    // logo: '/logo.png',
-    nav: [
-      { title: '组件', link: '/components/overview' },
-    ],
+    name: "RC-LLM",
+    // logo: "/logo.png",
+    nav: [{ title: "组件", link: "/components/overview" }],
     socialLinks: {
-      github: 'https://github.com/flybycan/rc-llm',
+      github: "https://github.com/flybycan/rc-llm",
     },
-    footer: 'Made with ❤️ by RC-LLM Team',
-    prefersColor: { default: 'auto' },
+    footer: "Made with ❤️ by RC-LLM Team",
+    prefersColor: { default: "auto" },
     showLineNum: true,
     hd: {
-      rules: [{ mode: 'vw', options: [100, 750] }],
+      rules: [{ mode: "vw", options: [100, 750] }],
     },
     deviceWidth: 375,
-    sidebarGroups: {
-      '/components': [
+    sidebar: {
+      "/components": [
         {
-          title: '组件总览',
+          title: "组件总览",
+          children: [{ title: "组件总览", link: "/components/overview" }],
+        },
+        {
+          title: "基础组件",
           children: [
-            { title: '组件总览', link: '/components/overview' },
+            { title: "Button 按钮", link: "/components/button" },
+            { title: "FloatButton 浮动按钮", link: "/components/float-button" },
           ],
         },
         {
-          title: '基础组件',
+          title: "数据录入",
           children: [
-            { title: 'Button 按钮', link: '/components/button' },
-            { title: 'Input 输入框', link: '/components/input' },
-            { title: 'Modal 对话框', link: '/components/modal' },
-            { title: 'Cascader 级联选择', link: '/components/cascader' },
-            { title: 'Upload 上传', link: '/components/upload' },
+            { title: "Input 输入框", link: "/components/input" },
+            { title: "DatePicker 日期选择", link: "/components/date-picker" },
+            { title: "Cascader 级联选择", link: "/components/cascader" },
+            { title: "Upload 上传", link: "/components/upload" },
           ],
         },
         {
-          title: '展示组件',
+          title: "数据展示",
           children: [
-            { title: 'Badge 徽标', link: '/components/badge' },
-            { title: 'Calendar 日历', link: '/components/calendar' },
-            { title: 'Drawer 抽屉', link: '/components/drawer' },
-            { title: 'Image 图片', link: '/components/image' },
-            { title: 'QRCode 二维码', link: '/components/qrcode' },
+            { title: "Badge 徽标", link: "/components/badge" },
+            { title: "Calendar 日历", link: "/components/calendar" },
+            { title: "Carousel 走马灯", link: "/components/carousel" },
+            { title: "Image 图片", link: "/components/image" },
+            { title: "Table 表格", link: "/components/table" },
+            { title: "Tooltip 文字提示", link: "/components/tooltip" },
+            { title: "Progress 进度条", link: "/components/progress" },
+            { title: "QRCode 二维码", link: "/components/qrcode" },
+            { title: "Skeleton 骨架屏", link: "/components/skeleton" },
+            {
+              title: "AnimatedNumber 数字动画",
+              link: "/components/animated-number",
+            },
+            {
+              title: "NumberTransition 数字滚动",
+              link: "/components/number-transition",
+            },
+          ],
+        },
+        {
+          title: "反馈组件",
+          children: [
+            { title: "Modal 对话框", link: "/components/modal" },
+            { title: "Drawer 抽屉", link: "/components/drawer" },
           ],
         },
       ],
     },
   },
-  locales: [{ id: 'zh-CN', name: '中文' }, { id: 'en-US', name: 'English' }],
+  locales: [
+    // { id: "zh-CN", name: "中文" },
+    // { id: "en-US", name: "English" },
+  ],
   resolve: {
     atomDirs: [
       { type: 'component', dir: 'src/components' },
-      { type: 'docs', dir: 'src/docs' },
     ],
   },
-  favicons: ['/logo.png'],
-  outputPath: 'dist',
+  favicons: ["/logo.png"],
+  outputPath: "dist",
   alias: {
-    '@rc-llm/components': resolve(__dirname, '../components/src')
+    "@rc-llm/components": resolve(__dirname, "../components/src"),
   },
-  styles: [
-    '@rc-llm/components/dist/style.css'
-  ],
+  styles: ["@rc-llm/components/dist/style.css"],
   theme: {
-    '@c-primary': '#1677ff',
-    '@c-primary-light': '#e6f4ff',
-    '@c-text': '#333',
-    '@c-text-secondary': '#666',
-    '@c-border': '#f0f0f0',
-    '@c-background': '#fff',
+    "@c-primary": "#1677ff",
+    "@c-primary-light": "#e6f4ff",
+    "@c-text": "#333",
+    "@c-text-secondary": "#666",
+    "@c-border": "#f0f0f0",
+    "@c-background": "#fff",
   },
 });
