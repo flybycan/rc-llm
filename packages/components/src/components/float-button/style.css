@@ -1,0 +1,141 @@
+:root {
+  --rc-llm-float-primary-color: #1677ff;
+  --rc-llm-float-default-color: #ffffff;
+  --rc-llm-float-danger-color: #ff4d4f;
+  --rc-llm-float-disabled-color: #d9d9d9;
+  --rc-llm-float-shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+.rc-llm-float-button {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  z-index: 100;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+/* 按钮形状 */
+.rc-llm-float-button-circle {
+  border-radius: 50%;
+}
+
+.rc-llm-float-button-square {
+  border-radius: 8px;
+}
+
+/* 按钮类型 */
+.rc-llm-float-button-default {
+  background-color: var(--rc-llm-float-default-color);
+  color: rgba(0, 0, 0, 0.88);
+  border: 1px solid #d9d9d9;
+}
+
+.rc-llm-float-button-primary {
+  background-color: var(--rc-llm-float-primary-color);
+  color: #fff;
+}
+
+.rc-llm-float-button-danger {
+  background-color: var(--rc-llm-float-danger-color);
+  color: #fff;
+}
+
+/* 按钮大小 */
+.rc-llm-float-button-small {
+  width: 40px;
+  height: 40px;
+}
+
+.rc-llm-float-button-middle {
+  width: 48px;
+  height: 48px;
+}
+
+.rc-llm-float-button-large {
+  width: 56px;
+  height: 56px;
+}
+
+/* 禁用状态 */
+.rc-llm-float-button[disabled] {
+  cursor: not-allowed;
+  background-color: var(--rc-llm-float-disabled-color);
+  color: rgba(0, 0, 0, 0.25);
+  box-shadow: none;
+}
+
+/* 阴影效果 */
+.rc-llm-float-button-shadow {
+  box-shadow:
+    0 6px 16px -8px var(--rc-llm-float-shadow-color),
+    0 9px 28px 0 rgba(0, 0, 0, 0.05),
+    0 12px 48px 16px rgba(0, 0, 0, 0.03);
+}
+
+/* 图标和内容 */
+.rc-llm-float-button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rc-llm-float-button-content {
+  margin-left: 8px;
+}
+
+/* 悬浮和点击效果 */
+.rc-llm-float-button:not([disabled]):hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.rc-llm-float-button:not([disabled]):active {
+  opacity: 0.9;
+  transform: translateY(0);
+}
+
+/* 波纹效果 */
+.rc-llm-float-button-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 适配带文本的按钮 */
+.rc-llm-float-button-square.rc-llm-float-button-small {
+  width: auto;
+  min-width: 40px;
+  padding: 0 12px;
+}
+
+.rc-llm-float-button-square.rc-llm-float-button-middle {
+  width: auto;
+  min-width: 48px;
+  padding: 0 16px;
+}
+
+.rc-llm-float-button-square.rc-llm-float-button-large {
+  width: auto;
+  min-width: 56px;
+  padding: 0 20px;
+}
+
+/* 带文本的按钮内容布局 */
+.rc-llm-float-button-square {
+  flex-direction: row;
+}

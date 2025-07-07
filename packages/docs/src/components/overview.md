@@ -36,7 +36,7 @@ pnpm add @rc-llm/components
 
 ### 使用
 
-```jsx
+<!-- ```jsx
 import { Button } from '@rc-llm/components';
 // import '@rc-llm/components/dist/style.css';
 
@@ -44,5 +44,8 @@ function App() {
   return (
     <Button type="primary">开始使用</Button>
   );
-}
+} -->
+
+```
+
 ```
