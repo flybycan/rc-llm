@@ -1,0 +1,13 @@
+.rc-llm-number-transition {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s;
+}
+
+.rc-llm-number-transition.increasing {
+  color: var(--rc-llm-color-success, #52c41a);
+}
+
+.rc-llm-number-transition.decreasing {
+  color: var(--rc-llm-color-danger, #ff4d4f);
+}
