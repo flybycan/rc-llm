@@ -5,6 +5,7 @@ export * from "./carousel";
 export * from "./cascader";
 export * from "./date-picker";
 export * from "./drawer";
+export * from './flex'
 export * from "./float-button";
 export * from "./draggable-float";
 export * from "./image";

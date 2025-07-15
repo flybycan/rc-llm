@@ -1,0 +1,152 @@
+.rc-llm-flex {
+  box-sizing: border-box;
+}
+
+/* 响应式断点 */
+@media (max-width: 768px) {
+  .rc-llm-flex[data-responsive="true"] {
+    flex-direction: column !important;
+  }
+}
+
+/* 间距工具类 */
+.rc-llm-flex-gap-xs {
+  gap: 4px;
+}
+
+.rc-llm-flex-gap-sm {
+  gap: 8px;
+}
+
+.rc-llm-flex-gap-md {
+  gap: 16px;
+}
+
+.rc-llm-flex-gap-lg {
+  gap: 24px;
+}
+
+.rc-llm-flex-gap-xl {
+  gap: 32px;
+}
+
+/* 对齐工具类 */
+.rc-llm-flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.rc-llm-flex-start {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.rc-llm-flex-end {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.rc-llm-flex-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rc-llm-flex-around {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.rc-llm-flex-evenly {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* 方向工具类 */
+.rc-llm-flex-row {
+  flex-direction: row;
+}
+
+.rc-llm-flex-column {
+  flex-direction: column;
+}
+
+.rc-llm-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.rc-llm-flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+/* 换行工具类 */
+.rc-llm-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.rc-llm-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.rc-llm-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+/* 填充工具类 */
+.rc-llm-flex-fill {
+  width: 100%;
+  height: 100%;
+}
+
+.rc-llm-flex-fill-width {
+  width: 100%;
+}
+
+.rc-llm-flex-fill-height {
+  height: 100%;
+}
+
+/* 内联工具类 */
+.rc-llm-flex-inline {
+  display: inline-flex;
+}
+
+/* 动画过渡 */
+.rc-llm-flex {
+  transition: all 0.3s ease;
+}
+
+/* 子元素样式 */
+.rc-llm-flex > * {
+  box-sizing: border-box;
+}
+
+/* 响应式工具类 */
+@media (max-width: 576px) {
+  .rc-llm-flex-responsive-xs {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .rc-llm-flex-responsive-sm {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 992px) {
+  .rc-llm-flex-responsive-md {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1200px) {
+  .rc-llm-flex-responsive-lg {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1600px) {
+  .rc-llm-flex-responsive-xl {
+    flex-direction: column;
+  }
+}

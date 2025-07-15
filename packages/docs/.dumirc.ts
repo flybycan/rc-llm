@@ -27,6 +27,7 @@ export default defineConfig({
           children: [
             { title: "Button 按钮", link: "/components/button" },
             { title: "FloatButton 浮动按钮", link: "/components/float-button" },
+            { title: "Flex 弹性布局", link: "/components/flex" },
           ],
         },
         {
