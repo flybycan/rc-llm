@@ -1,3 +1,132 @@
 .rc-llm-qrcode {
   display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rc-llm-qrcode:hover {
+  transform: scale(1.02);
+}
+
+.rc-llm-qrcode svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.rc-llm-qrcode-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.rc-llm-qrcode-status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.rc-llm-qrcode-status-text {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+  max-width: 80%;
+  word-break: break-word;
+}
+
+.rc-llm-qrcode-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rc-llm-qrcode-loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #1677ff;
+  border-radius: 50%;
+  animation: rc-llm-qrcode-spin 1s linear infinite;
+}
+
+@keyframes rc-llm-qrcode-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.rc-llm-qrcode-error-icon {
+  width: 32px;
+  height: 32px;
+  color: #ff4d4f;
+}
+
+.rc-llm-qrcode-error-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.rc-llm-qrcode-refresh-btn {
+  margin-top: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #1677ff;
+  background: transparent;
+  border: 1px solid #1677ff;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.rc-llm-qrcode-refresh-btn:hover {
+  background: #1677ff;
+  color: white;
+}
+
+.rc-llm-qrcode-refresh-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+.rc-llm-qrcode-refresh-btn:active {
+  transform: scale(0.95);
+}
+
+/* 禁用状态 */
+.rc-llm-qrcode.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.rc-llm-qrcode.disabled:hover {
+  transform: none;
+}
+
+/* 响应式支持 */
+@media (max-width: 768px) {
+  .rc-llm-qrcode-status-text {
+    font-size: 11px;
+  }
+  
+  .rc-llm-qrcode-refresh-btn {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
 }
