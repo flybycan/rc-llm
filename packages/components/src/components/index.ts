@@ -19,3 +19,4 @@ export * from "./skeleton";
 export * from "./table";
 export * from "./tooltip";
 export * from "./upload";
+export * from "./ellipsis";

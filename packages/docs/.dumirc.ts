@@ -2,6 +2,8 @@ import { defineConfig } from "dumi";
 import { resolve } from "path";
 
 export default defineConfig({
+  base: "/docs/",
+  publicPath: "/docs/",
   themeConfig: {
     name: "RC-LLM",
     // logo: "/logo.png",
@@ -28,6 +30,7 @@ export default defineConfig({
             { title: "Button 按钮", link: "/components/button" },
             { title: "FloatButton 浮动按钮", link: "/components/float-button" },
             { title: "Flex 弹性布局", link: "/components/flex" },
+            { title: "Ellipsis 文本省略", link: "/components/ellipsis" },
           ],
         },
         {

@@ -1,0 +1,47 @@
+.rc-llm-ellipsis-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.rc-llm-ellipsis-wrapper.middle {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+.rc-llm-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  transition: all 0.3s ease-in-out;
+}
+
+.rc-llm-ellipsis.expanded {
+  -webkit-line-clamp: unset !important;
+}
+
+.rc-llm-ellipsis-expand {
+  color: #1677ff;
+  cursor: pointer;
+  margin-left: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+  align-self: flex-end;
+  line-height: 1.5;
+}
+
+.rc-llm-ellipsis-expand:hover {
+  opacity: 0.8;
+}
+
+.rc-llm-ellipsis-text-hidden {
+  position: absolute;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: -1;
+}
