@@ -6,6 +6,7 @@ export * from "./cascader";
 export * from "./date-picker";
 export * from "./drawer";
 export * from "./float-button";
+export * from "./draggable-float";
 export * from "./image";
 export * from "./input";
 export * from "./modal";

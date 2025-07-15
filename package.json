@@ -4,7 +4,7 @@
   "private": true,
   "description": "React移动端UI组件库",
   "scripts": {
-    "dev": "bun run build:components && (cd packages/docs && bun run dev &)",
+    "dev": "bun run build:components && (cd packages/docs && bun run dev)",
     "build": "bun run build:components && bun run build:docs",
     "build:components": "(cd packages/components && bun run build)",
     "build:docs": "(cd packages/docs && bun run build)",

@@ -75,9 +75,7 @@ export default defineConfig({
     // { id: "en-US", name: "English" },
   ],
   resolve: {
-    atomDirs: [
-      { type: 'component', dir: 'src/components' },
-    ],
+    atomDirs: [{ type: "component", dir: "src/components" }],
   },
   favicons: ["/logo.png"],
   outputPath: "dist",
