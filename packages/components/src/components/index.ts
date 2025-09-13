@@ -21,3 +21,4 @@ export * from "./table";
 export * from "./tooltip";
 export * from "./upload";
 export * from "./ellipsis";
+export * from "./popover";

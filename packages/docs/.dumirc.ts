@@ -46,6 +46,7 @@ export default defineConfig({
           title: "数据展示",
           children: [
             { title: "Badge 徽标", link: "/components/badge" },
+              { title: "Popover 浮窗", link: "/components/popover" },
             { title: "Calendar 日历", link: "/components/calendar" },
             { title: "Carousel 走马灯", link: "/components/carousel" },
             { title: "Image 图片", link: "/components/image" },
