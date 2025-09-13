@@ -49,6 +49,7 @@ export default defineConfig({
             { title: "Calendar 日历", link: "/components/calendar" },
             { title: "Carousel 走马灯", link: "/components/carousel" },
             { title: "Image 图片", link: "/components/image" },
+            { title: "lazyImage 懒加载图片", link: "/components/lazy-image" },
             { title: "Table 表格", link: "/components/table" },
             { title: "Tooltip 文字提示", link: "/components/tooltip" },
             { title: "Progress 进度条", link: "/components/progress" },

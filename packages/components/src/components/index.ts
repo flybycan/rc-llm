@@ -10,6 +10,7 @@ export * from "./float-button";
 export * from "./draggable-float";
 export * from "./image";
 export * from "./input";
+export * from "./lazy-image";
 export * from "./modal";
 export * from "./number-transition";
 export * from "./animated-number";
