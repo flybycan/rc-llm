@@ -2,7 +2,7 @@ import React from "react";
 import { FloatButton } from "@rc-llm/components";
 import IframeDemo from "./IframeDemo";
 
-export default () => {
+const FloatButtonBasicDemo = () => {
   return (
     <IframeDemo height={200} title="基础用法">
       <FloatButton
@@ -14,3 +14,5 @@ export default () => {
     </IframeDemo>
   );
 };
+
+export default FloatButtonBasicDemo;

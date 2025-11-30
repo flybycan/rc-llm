@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "dumi dev",
     "build": "dumi build",
-    "prepare": "dumi setup"
+    "prepare": "dumi setup",
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
     "@rc-llm/components": "workspace:*"

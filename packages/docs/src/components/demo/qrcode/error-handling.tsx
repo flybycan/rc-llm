@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { QRCode } from '@rc-llm/components';
 import { Button } from '@rc-llm/components';
 
-export default () => {
+export default function QRCodeErrorHandlingDemo() {
   const [error, setError] = useState<string | undefined>(undefined);
 
   const showError = () => {
@@ -32,7 +32,7 @@ export default () => {
           清除错误
         </Button>
       </div>
-      
+
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
         <div>
           <QRCode
@@ -43,7 +43,7 @@ export default () => {
           />
           <p>默认错误处理</p>
         </div>
-        
+
         <div>
           <QRCode
             value="https://github.com/flybycan/rc-llm"
@@ -51,9 +51,9 @@ export default () => {
             error={error}
             onRefresh={handleRefresh}
             errorIcon={
-              <div style={{ 
-                width: '40px', 
-                height: '40px', 
+              <div style={{
+                width: '40px',
+                height: '40px',
                 color: '#faad14',
                 fontSize: '40px'
               }}>⚠️</div>
@@ -64,7 +64,7 @@ export default () => {
           />
           <p>自定义错误图标</p>
         </div>
-        
+
         <div>
           <QRCode
             value="https://github.com/flybycan/rc-llm"
@@ -77,4 +77,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

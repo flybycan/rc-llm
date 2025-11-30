@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-// @ts-ignore
 import { Popover } from '@rc-llm/components';
 
-export default () => {
+export default function PopoverControlledDemo() {
   const [visible, setVisible] = useState(false);
 
   const content = (
@@ -22,7 +21,7 @@ export default () => {
           {visible ? '隐藏' : '显示'} Popover
         </button>
       </div>
-      
+
       <Popover
         content={content}
         visible={visible}
@@ -35,4 +34,4 @@ export default () => {
       </Popover>
     </div>
   );
-};
+}

@@ -24,7 +24,6 @@ export const Calendar: React.FC<CalendarProps> = ({
   onChange,
   minDate,
   maxDate,
-  showLunar = false,
   dateRender,
 }) => {
   const [currentDate, setCurrentDate] = useState<Date>(value || defaultValue);

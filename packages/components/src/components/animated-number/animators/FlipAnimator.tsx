@@ -6,7 +6,6 @@ import { AnimatorProps } from "./BaseAnimator";
  */
 export const FlipAnimator: React.FC<AnimatorProps> = ({
   formattedValue,
-  previousValue,
   duration,
 }) => {
   // Store previous formatted value to compare

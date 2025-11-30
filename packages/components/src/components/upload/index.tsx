@@ -9,9 +9,9 @@ export interface UploadProps {
   /** 是否支持多选 */
   multiple?: boolean;
   /** 上传成功回调 */
-  onSuccess?: (response: any, file: File) => void;
+  onSuccess?: (response: unknown, file: File) => void;
   /** 上传失败回调 */
-  onError?: (error: any, file: File) => void;
+  onError?: (error: unknown, file: File) => void;
   /** 上传中回调 */
   onProgress?: (percent: number, file: File) => void;
   /** 文件改变回调 */

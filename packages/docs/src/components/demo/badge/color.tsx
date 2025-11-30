@@ -1,7 +1,7 @@
 import React from 'react';
-import {Badge} from '@rc-llm/components';
+import { Badge } from '@rc-llm/components';
 
-export default () => (
+const BadgeColorDemo = () => (
   <div style={{ display: 'flex', gap: '24px' }}>
     <Badge content="6" color="primary">
       <div style={{ width: '42px', height: '42px', background: '#eee' }} />
@@ -17,3 +17,5 @@ export default () => (
     </Badge>
   </div>
 );
+
+export default BadgeColorDemo;

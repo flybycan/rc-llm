@@ -2,7 +2,7 @@ import React from "react";
 import { FloatButton } from "@rc-llm/components";
 import IframeDemo from "./IframeDemo";
 
-export default () => {
+export const FloatButtonPositionDemo = () => {
   const handleClick = (position: string) => {
     alert(`Clicked ${position} button!`);
   };
@@ -38,3 +38,5 @@ export default () => {
     </IframeDemo>
   );
 };
+
+export default FloatButtonPositionDemo;

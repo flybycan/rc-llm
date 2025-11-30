@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './style.css';
 
 export interface CarouselProps {
@@ -32,44 +32,45 @@ export const Carousel: React.FC<CarouselProps> = ({
   const autoplayTimer = useRef<NodeJS.Timeout>();
   const items = React.Children.toArray(children);
 
+  const stopAutoplay = useCallback(() => {
+    if (autoplayTimer.current) {
+      clearTimeout(autoplayTimer.current);
+    }
+  }, []);
+
+  const handleChange = useCallback((index: number) => {
+    setIsAnimating(true);
+    setCurrent(index);
+    onChange?.(index);
+    setTimeout(() => setIsAnimating(false), animationDuration);
+  }, [animationDuration, onChange]);
+
+  const next = useCallback(() => {
+    if (isAnimating) return;
+    const nextIndex = (current + 1) % items.length;
+    handleChange(nextIndex);
+  }, [current, isAnimating, items.length, handleChange]);
+
+  const prev = useCallback(() => {
+    if (isAnimating) return;
+    const prevIndex = (current - 1 + items.length) % items.length;
+    handleChange(prevIndex);
+  }, [current, isAnimating, items.length, handleChange]);
+
+  const startAutoplay = useCallback(() => {
+    stopAutoplay();
+    autoplayTimer.current = setTimeout(() => {
+      next();
+    }, autoplayInterval);
+  }, [autoplayInterval, next, stopAutoplay]);
+
   useEffect(() => {
     if (autoplayInterval > 0) {
       startAutoplay();
     }
     return () => stopAutoplay();
-  }, [autoplayInterval, current]);
+  }, [autoplayInterval, current, startAutoplay, stopAutoplay]);
 
-  const startAutoplay = () => {
-    stopAutoplay();
-    autoplayTimer.current = setTimeout(() => {
-      next();
-    }, autoplayInterval);
-  };
-
-  const stopAutoplay = () => {
-    if (autoplayTimer.current) {
-      clearTimeout(autoplayTimer.current);
-    }
-  };
-
-  const next = () => {
-    if (isAnimating) return;
-    const nextIndex = (current + 1) % items.length;
-    handleChange(nextIndex);
-  };
-
-  const prev = () => {
-    if (isAnimating) return;
-    const prevIndex = (current - 1 + items.length) % items.length;
-    handleChange(prevIndex);
-  };
-
-  const handleChange = (index: number) => {
-    setIsAnimating(true);
-    setCurrent(index);
-    onChange?.(index);
-    setTimeout(() => setIsAnimating(false), animationDuration);
-  };
 
   return (
     <div className="rc-llm-carousel" onMouseEnter={stopAutoplay} onMouseLeave={() => autoplayInterval > 0 && startAutoplay()}>
@@ -80,7 +81,7 @@ export const Carousel: React.FC<CarouselProps> = ({
           </div>
         ))}
       </div>
-      
+
       {showArrows && (
         <>
           <button className="rc-llm-carousel-arrow rc-llm-carousel-arrow-prev" onClick={prev}>

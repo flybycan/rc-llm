@@ -1,0 +1,14 @@
+.rc-llm-page-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.rc-llm-page-progress-bar-fill {
+  height: 100%;
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}

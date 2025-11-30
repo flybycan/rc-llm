@@ -31,6 +31,7 @@ export default defineConfig({
             { title: "FloatButton 浮动按钮", link: "/components/float-button" },
             { title: "Flex 弹性布局", link: "/components/flex" },
             { title: "Ellipsis 文本省略", link: "/components/ellipsis" },
+            { title: "页面进度条", link: "/components/page-progress-bar" },
           ],
         },
         {

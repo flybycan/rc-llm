@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip } from '@rc-llm/components';
 
-export default () => {
+export default function TooltipCustomStyleDemo() {
   return (
     <div style={{ padding: '40px', display: 'flex', gap: '20px' }}>
       <Tooltip
@@ -23,4 +23,4 @@ export default () => {
       </Tooltip>
     </div>
   );
-};
+}

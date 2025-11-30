@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@rc-llm/components";
 import { NumberTransition } from "@rc-llm/components";
 
-export default () => {
+export default function NumberTransitionPrefixSuffixDemo() {
   const [value, setValue] = useState(9999);
 
   const handleIncrease = () => {
@@ -40,4 +40,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

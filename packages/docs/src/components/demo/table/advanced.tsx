@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from '@rc-llm/components';
+import { Table, TableColumn } from '@rc-llm/components';
 
 interface DataType {
   key: string;
@@ -37,16 +37,16 @@ const dataSource: DataType[] = [
   },
 ];
 
-const columns:any = [
+const columns: TableColumn<DataType>[] = [
   {
     title: '姓名',
     dataIndex: 'name',
     width: 100,
     sortable: true,
     align: 'center',
-    render: (value: string, record: DataType) => (
+    render: (value: unknown, record: DataType) => (
       <div style={{ color: record.age > 40 ? '#f5222d' : '#52c41a' }}>
-        {value}
+        {value as string}
       </div>
     ),
   },
@@ -56,16 +56,16 @@ const columns:any = [
     width: 100,
     sortable: true,
     align: 'center',
-    render: (value: number) => `${value}岁`,
+    render: (value: unknown) => `${value as number}岁`,
   },
   {
     title: '标签',
     dataIndex: 'tags',
     width: 200,
     align: 'center',
-    render: (tags: string[]) => (
+    render: (tags: unknown) => (
       <div style={{ display: 'flex', gap: 8, justifyContent: 'center' }}>
-        {tags.map((tag) => (
+        {(tags as string[]).map((tag) => (
           <span
             key={tag}
             style={{
@@ -93,7 +93,7 @@ const columns:any = [
   },
 ];
 
-export default () => {
+export default function TableAdvancedDemo() {
   const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([]);
   const [currentPage, setCurrentPage] = React.useState(1);
   const pageSize = 2;
@@ -120,4 +120,4 @@ export default () => {
       }}
     />
   );
-};
+}

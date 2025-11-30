@@ -116,15 +116,16 @@ export class AnimationController {
         return progress < 0.5
           ? 2 * progress * progress
           : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-      case "elastic":
+      case "elastic": {
         const c4 = (2 * Math.PI) / 3;
         return progress === 0
           ? 0
           : progress === 1
             ? 1
             : -Math.pow(2, 10 * progress - 10) *
-              Math.sin((progress * 10 - 10.75) * c4);
-      case "bounce":
+            Math.sin((progress * 10 - 10.75) * c4);
+      }
+      case "bounce": {
         const n1 = 7.5625;
         const d1 = 2.75;
         if (progress < 1 / d1) {
@@ -136,6 +137,7 @@ export class AnimationController {
         } else {
           return n1 * (progress -= 2.625 / d1) * progress + 0.984375;
         }
+      }
       default:
         return progress;
     }

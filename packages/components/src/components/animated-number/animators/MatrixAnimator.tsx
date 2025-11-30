@@ -1,14 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { AnimatorProps } from "./BaseAnimator";
 
 /**
  * Matrix animator component that creates a "digital rain" effect
  * when the number changes
  */
+
+// Generate random digits
+const getRandomDigit = () => {
+  return Math.floor(Math.random() * 10).toString();
+};
+
 const MatrixAnimator: React.FC<AnimatorProps> = ({
   formattedValue,
-  previousValue,
-  color,
   duration,
 }) => {
   const [displayChars, setDisplayChars] = useState<string[]>([]);
@@ -17,10 +21,48 @@ const MatrixAnimator: React.FC<AnimatorProps> = ({
   const animationFrameRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
 
-  // Generate random digits
-  const getRandomDigit = () => {
-    return Math.floor(Math.random() * 10).toString();
-  };
+
+  // Animation loop
+  const updateMatrixAnimation = useCallback(function animate(timestamp: number) {
+    if (startTimeRef.current === null) {
+      startTimeRef.current = timestamp;
+    }
+
+    const elapsed = timestamp - startTimeRef.current;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Target characters
+    const targetChars = formattedValue.split("");
+
+    // Update each character with decreasing randomness as progress increases
+    const newChars = targetChars.map((targetChar) => {
+      // If it's not a digit, keep it as is
+      if (!/\d/.test(targetChar)) {
+        return targetChar;
+      }
+
+      // Calculate probability of showing the correct digit
+      const probability = progress * progress; // Quadratic easing
+
+      // With increasing probability, show the correct digit
+      if (Math.random() < probability) {
+        return targetChar;
+      } else {
+        return getRandomDigit();
+      }
+    });
+
+    setDisplayChars(newChars);
+
+    // Continue animation or end
+    if (progress < 1) {
+      animationFrameRef.current = requestAnimationFrame(animate);
+    } else {
+      // Ensure final state is correct
+      setDisplayChars(targetChars);
+      setIsAnimating(false);
+    }
+  }, [duration, formattedValue]);
 
   // Start matrix animation when value changes
   useEffect(() => {
@@ -53,49 +95,7 @@ const MatrixAnimator: React.FC<AnimatorProps> = ({
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [formattedValue]);
-
-  // Animation loop
-  const updateMatrixAnimation = (timestamp: number) => {
-    if (startTimeRef.current === null) {
-      startTimeRef.current = timestamp;
-    }
-
-    const elapsed = timestamp - startTimeRef.current;
-    const progress = Math.min(elapsed / duration, 1);
-
-    // Target characters
-    const targetChars = formattedValue.split("");
-
-    // Update each character with decreasing randomness as progress increases
-    const newChars = targetChars.map((targetChar, index) => {
-      // If it's not a digit, keep it as is
-      if (!/\d/.test(targetChar)) {
-        return targetChar;
-      }
-
-      // Calculate probability of showing the correct digit
-      const probability = progress * progress; // Quadratic easing
-
-      // With increasing probability, show the correct digit
-      if (Math.random() < probability) {
-        return targetChar;
-      } else {
-        return getRandomDigit();
-      }
-    });
-
-    setDisplayChars(newChars);
-
-    // Continue animation or end
-    if (progress < 1) {
-      animationFrameRef.current = requestAnimationFrame(updateMatrixAnimation);
-    } else {
-      // Ensure final state is correct
-      setDisplayChars(targetChars);
-      setIsAnimating(false);
-    }
-  };
+  }, [formattedValue, updateMatrixAnimation]);
 
   return (
     <div className="rc-animated-number-matrix">

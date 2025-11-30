@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from '@rc-llm/components';
+import { Table, TableColumn } from '@rc-llm/components';
 
 interface DataType {
   key: string;
@@ -29,7 +29,7 @@ const dataSource: DataType[] = [
   },
 ];
 
-const columns:any = [
+const columns: TableColumn<DataType>[] = [
   {
     title: '姓名',
     dataIndex: 'name',
@@ -43,7 +43,7 @@ const columns:any = [
     width: 100,
     sortable: true,
     align: 'center',
-    render: (value) => `${value}岁`,
+    render: (value: unknown) => `${value as number}岁`,
   },
   {
     title: '住址',
@@ -52,7 +52,7 @@ const columns:any = [
   },
 ];
 
-export default () => {
+export default function TableBasicDemo() {
   const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([]);
   const [currentPage, setCurrentPage] = React.useState(1);
   const pageSize = 2;
@@ -79,4 +79,4 @@ export default () => {
       }}
     />
   );
-};
+}

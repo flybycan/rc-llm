@@ -1,11 +1,12 @@
 import React from "react";
 import { Ellipsis } from "@rc-llm/components";
 
-export default () => {
-  const text = "这是一个从中间省略的长文本示例，通常用于显示文件路径或者ID。";
+export default function EllipsisMiddleDemo() {
   return (
-    <div style={{ width: 300 }}>
-      <Ellipsis mode="middle">{text}</Ellipsis>
+    <div style={{ width: '200px' }}>
+      <Ellipsis mode="middle">
+        There were injuries alleged in three cases in 2015, and a fourth incident in September, according to the safety recall report. After meeting with US regulators in October, the firm decided to issue a voluntary recall.
+      </Ellipsis>
     </div>
   );
-};
+}

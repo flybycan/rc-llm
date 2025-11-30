@@ -43,7 +43,8 @@ export interface TableProps<T> {
   };
 }
 
-export function Table<T extends Record<string, any>>({ 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function Table<T extends Record<string, any>>({
   dataSource,
   columns,
   bordered = false,
@@ -74,13 +75,13 @@ export function Table<T extends Record<string, any>>({
     const key = record.key as React.Key;
     const selectedKeys = [...rowSelection.selectedRowKeys];
     const index = selectedKeys.indexOf(key);
-    
+
     if (index >= 0) {
       selectedKeys.splice(index, 1);
     } else {
       selectedKeys.push(key);
     }
-    
+
     rowSelection.onChange(selectedKeys, dataSource.filter(item => selectedKeys.includes(item.key as React.Key)));
   };
 
@@ -123,8 +124,8 @@ export function Table<T extends Record<string, any>>({
               <tr>
                 {rowSelection && (
                   <th className="rc-llm-table-selection-column">
-                    <input 
-                      type="checkbox" 
+                    <input
+                      type="checkbox"
                       checked={rowSelection.selectedRowKeys.length === dataSource.length}
                       onChange={handleSelectAll}
                     />
@@ -165,8 +166,8 @@ export function Table<T extends Record<string, any>>({
               >
                 {rowSelection && (
                   <td className="rc-llm-table-selection-column">
-                    <input 
-                      type="checkbox" 
+                    <input
+                      type="checkbox"
                       checked={rowSelection.selectedRowKeys.includes(record.key as React.Key)}
                       onChange={() => handleRowSelect(record)}
                     />

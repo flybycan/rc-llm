@@ -160,12 +160,13 @@ export const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
           : trend === "decreasing"
             ? decreaseColor
             : color;
-      case "threshold":
+      case "threshold": {
         // Find the highest threshold that the current value exceeds
         const activeThreshold = [...thresholds]
           .sort((a, b) => b.value - a.value)
           .find((t) => displayValue >= t.value);
         return activeThreshold ? activeThreshold.color : color;
+      }
       default:
         return color;
     }
@@ -177,6 +178,7 @@ export const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
     const animatorProps = {
       value: displayValue,
       formattedValue,
+      // eslint-disable-next-line react-hooks/refs
       previousValue: previousValue.current,
       color: getCurrentColor(),
       duration,
@@ -244,6 +246,7 @@ export const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
       style={containerStyle}
     >
       {prefix}
+      {/* eslint-disable-next-line react-hooks/refs */}
       {renderAnimator()}
       {suffix}
     </div>

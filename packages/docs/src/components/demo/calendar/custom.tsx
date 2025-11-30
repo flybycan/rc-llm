@@ -1,38 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Calendar } from '@rc-llm/components';
 
-export default () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
-  const customDateRender = (date: Date) => {
-    const day = date.getDate();
-    const isWeekend = date.getDay() === 0 || date.getDay() === 6;
-
-    return (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: isWeekend ? '#ff4d4f' : 'inherit',
-        }}
-      >
-        <span>{day}</span>
-        {isWeekend && <span style={{ fontSize: '12px', marginTop: '2px' }}>周末</span>}
-      </div>
-    );
-  };
-
+export default function CalendarCustomDemo() {
   return (
-    <div style={{ maxWidth: '400px' }}>
+    <div style={{ width: '300px', border: '1px solid #d9d9d9', borderRadius: '4px' }}>
       <Calendar
-        value={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        dateRender={customDateRender}
+        dateRender={(date) => (
+          <div style={{ textAlign: 'center' }}>
+            {date.getDate()}
+            {date.getDate() === 1 && <div style={{ fontSize: '10px', color: 'red' }}>1st</div>}
+          </div>
+        )}
       />
     </div>
   );
-};
+}

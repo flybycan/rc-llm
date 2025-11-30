@@ -15,6 +15,7 @@ export const PulseScaleAnimator: React.FC<AnimatorProps> = ({
   useEffect(() => {
     if (prevValueRef.current !== formattedValue) {
       // Trigger pulse animation
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsPulsing(true);
 
       // Reset after animation completes

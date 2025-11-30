@@ -17,6 +17,7 @@ const GlowTrailAnimator: React.FC<AnimatorProps> = ({
   useEffect(() => {
     if (prevValueRef.current !== formattedValue) {
       // Start animation
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsAnimating(true);
 
       // Reset animation after duration

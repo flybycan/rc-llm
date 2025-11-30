@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Drawer } from '@rc-llm/components';
 
-export default () => {
+export default function DrawerCustomWidthHeightDemo() {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -15,18 +15,19 @@ export default () => {
   return (
     <>
       <Button type="primary" onClick={showDrawer}>
-        Open Drawer with Custom Size
+        Open
       </Button>
       <Drawer
-        title="Custom Size Drawer"
+        title="Basic Drawer"
         placement="right"
+        width={520}
         onClose={onClose}
         visible={visible}
-        width={500}
-        height={300}
       >
-        <p>This drawer has custom width and height.</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
       </Drawer>
     </>
   );
-};
+}

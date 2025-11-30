@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from '@rc-llm/components';
 
-export default () => {
+export default function ImageObjectFitDemo() {
   return (
     <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
       <div style={{ textAlign: 'center' }}>
@@ -56,4 +56,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

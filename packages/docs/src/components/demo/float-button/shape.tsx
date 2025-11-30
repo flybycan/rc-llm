@@ -2,7 +2,7 @@ import React from "react";
 import { FloatButton } from "@rc-llm/components";
 import IframeDemo from "./IframeDemo";
 
-export default () => {
+const FloatButtonShapeDemo = () => {
   const handleClick = (shape: string) => {
     alert(`Clicked ${shape} button!`);
   };
@@ -29,3 +29,5 @@ export default () => {
     </IframeDemo>
   );
 };
+
+export default FloatButtonShapeDemo;

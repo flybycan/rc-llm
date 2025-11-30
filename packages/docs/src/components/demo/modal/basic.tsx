@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from '@rc-llm/components';
 
-export default () => {
+export default function ModalBasicDemo() {
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
@@ -35,4 +35,4 @@ export default () => {
       </Modal>
     </>
   );
-};
+}

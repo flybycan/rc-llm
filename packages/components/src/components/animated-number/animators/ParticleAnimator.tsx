@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatorProps } from "./BaseAnimator";
 
 interface Particle {
@@ -19,7 +19,6 @@ interface Particle {
  */
 const ParticleAnimator: React.FC<AnimatorProps> = ({
   formattedValue,
-  previousValue,
   color,
   duration,
 }) => {
@@ -32,31 +31,8 @@ const ParticleAnimator: React.FC<AnimatorProps> = ({
   const [prevFormatted, setPrevFormatted] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Initialize particles when value changes
-  useEffect(() => {
-    if (prevFormatted && prevFormatted !== formattedValue) {
-      initParticles();
-      setIsAnimating(true);
-      startTimeRef.current = null;
-
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-
-      animationRef.current = requestAnimationFrame(animateParticles);
-    }
-
-    setPrevFormatted(formattedValue);
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, [formattedValue]);
-
   // Initialize particles based on previous value
-  const initParticles = () => {
+  const initParticles = useCallback(() => {
     if (!containerRef.current) return;
 
     const particles: Particle[] = [];
@@ -86,12 +62,12 @@ const ParticleAnimator: React.FC<AnimatorProps> = ({
     });
 
     particlesRef.current = particles;
-  };
+  }, [prevFormatted]);
 
   // Animate particles
-  const animateParticles = (timestamp: number) => {
+  const animateParticles = useCallback(function animate(timestamp: number) {
     if (!canvasRef.current || !containerRef.current) {
-      animationRef.current = requestAnimationFrame(animateParticles);
+      animationRef.current = requestAnimationFrame(animate);
       return;
     }
 
@@ -99,7 +75,7 @@ const ParticleAnimator: React.FC<AnimatorProps> = ({
     const ctx = canvas.getContext("2d");
 
     if (!ctx) {
-      animationRef.current = requestAnimationFrame(animateParticles);
+      animationRef.current = requestAnimationFrame(animate);
       return;
     }
 
@@ -146,11 +122,34 @@ const ParticleAnimator: React.FC<AnimatorProps> = ({
 
     // Continue animation or end
     if (progress < 1) {
-      animationRef.current = requestAnimationFrame(animateParticles);
+      animationRef.current = requestAnimationFrame(animate);
     } else {
       setIsAnimating(false);
     }
-  };
+  }, [color, duration]);
+
+  // Initialize particles when value changes
+  useEffect(() => {
+    if (prevFormatted && prevFormatted !== formattedValue) {
+      initParticles();
+      setIsAnimating(true);
+      startTimeRef.current = null;
+
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+
+      animationRef.current = requestAnimationFrame(animateParticles);
+    }
+
+    setPrevFormatted(formattedValue);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [formattedValue, prevFormatted, initParticles, animateParticles]);
 
   return (
     <div ref={containerRef} className="rc-animated-number-particle">

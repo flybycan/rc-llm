@@ -3,6 +3,7 @@ import { LazyImage, Skeleton } from "@rc-llm/components";
 
 const imageList = Array.from({ length: 20 }).map((_, index) => (
   <LazyImage
+    key={index}
     width={300}
     height={200}
     src={`https://picsum.photos/200/300?random=${index + 1}`}
@@ -13,13 +14,15 @@ const imageList = Array.from({ length: 20 }).map((_, index) => (
   />
 ));
 
-export default () => (
-  <div>
-    {imageList}
+export default function LazyImageBasicDemo() {
+  return (
+    <div>
+      {imageList}
 
-    <div style={{ height: "1000px" }}>
-      Scroll down to see the other image load.   
+      <div style={{ height: "1000px" }}>
+        Scroll down to see the other image load.
+      </div>
+      {imageList}
     </div>
-    {imageList}
-  </div>
-);
+  );
+}

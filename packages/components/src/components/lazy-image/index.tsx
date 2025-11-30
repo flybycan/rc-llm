@@ -95,4 +95,4 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   );
 };
 
-LazyImage.displayName;
+LazyImage.displayName = 'LazyImage';

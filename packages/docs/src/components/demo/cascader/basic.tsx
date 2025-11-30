@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Cascader } from '@rc-llm/components';
-import type { CascaderOption } from '@rc-llm/components';
 
-const options: CascaderOption[] = [
+const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -37,13 +36,10 @@ const options: CascaderOption[] = [
   },
 ];
 
-export default () => {
-  const [value, setValue] = useState<string[]>([]);
-
+export default function CascaderBasicDemo() {
   const onChange = (value: string[]) => {
-    setValue(value);
     console.log(value);
   };
 
-  return <Cascader options={options} value={value} onChange={onChange} />;
-};
+  return <Cascader options={options} onChange={onChange} placeholder="请选择" />;
+}

@@ -80,6 +80,7 @@ export const FloatButton: React.FC<FloatButtonProps> = ({
   // 如果 visible 属性被直接控制，则使用传入的值
   useEffect(() => {
     if (propVisible !== undefined) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisible(propVisible);
     }
   }, [propVisible]);

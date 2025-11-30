@@ -8,7 +8,8 @@
     "build": "bun run build:components && bun run build:docs",
     "build:components": "(cd packages/components && bun run build)",
     "build:docs": "(cd packages/docs && bun run build)",
-    "test": "bun --cwd packages/components run test"
+    "test": "bun --cwd packages/components run test",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx"
   },
   "keywords": [
     "react",
@@ -20,4 +21,12 @@
   "license": "MIT",
   "workspaces": [
     "packages/*"
-  ]}
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1"
+  }
+}

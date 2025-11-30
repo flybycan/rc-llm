@@ -1,12 +1,12 @@
 import React from "react";
 import { Ellipsis } from "@rc-llm/components";
 
-export default () => {
-  const text =
-    "这是一个可以展开和收起的长文本示例。这是一个可以展开和收起的长文本示例。这是一个可以展开和收起的长文本示例。这是一个可以展开和收起的长文本示例。这是一个可以展开和收起的长文本示例。";
+export default function EllipsisExpandableDemo() {
   return (
-    <Ellipsis rows={2} expandable>
-      {text}
-    </Ellipsis>
+    <div style={{ width: '200px' }}>
+      <Ellipsis expandable rows={2}>
+        There were injuries alleged in three cases in 2015, and a fourth incident in September, according to the safety recall report. After meeting with US regulators in October, the firm decided to issue a voluntary recall.
+      </Ellipsis>
+    </div>
   );
-};
+}

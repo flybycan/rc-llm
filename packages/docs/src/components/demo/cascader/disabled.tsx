@@ -1,8 +1,7 @@
 import React from 'react';
 import { Cascader } from '@rc-llm/components';
-import type { CascaderOption } from '@rc-llm/components';
 
-const options: CascaderOption[] = [
+const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -37,8 +36,11 @@ const options: CascaderOption[] = [
   },
 ];
 
-export default () => {
+export default function CascaderDisabledDemo() {
   return (
-    <Cascader options={options} value={['zhejiang', 'hangzhou', 'xihu']} disabled />
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <Cascader options={options} disabled placeholder="禁用选择" />
+      <Cascader options={options} value={['zhejiang', 'hangzhou', 'xihu']} disabled />
+    </div>
   );
-};
+}

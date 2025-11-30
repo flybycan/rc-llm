@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Flex, Button } from '@rc-llm/components';
 
-export default () => {
+export default function FlexWrapDemo() {
   const [wrap, setWrap] = useState<'nowrap' | 'wrap' | 'wrap-reverse'>('nowrap');
   const [itemCount, setItemCount] = useState(5);
 
@@ -10,7 +10,7 @@ export default () => {
   return (
     <div style={{ padding: '20px' }}>
       <h3>换行演示（带控制面板）</h3>
-      
+
       <div style={{ marginBottom: '20px', padding: '20px', background: '#f5f5f5', borderRadius: '8px' }}>
         <h4>控制面板</h4>
         <Flex gap={16} wrapEnabled>
@@ -29,7 +29,7 @@ export default () => {
               ))}
             </Flex>
           </div>
-          
+
           <div>
             <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>项目数量:</label>
             <Flex gap={8} wrapEnabled>
@@ -48,31 +48,31 @@ export default () => {
         </Flex>
       </div>
 
-      <div style={{ 
-        background: '#e6f4ff', 
-        padding: '20px', 
+      <div style={{
+        background: '#e6f4ff',
+        padding: '20px',
         borderRadius: '8px',
         overflow: 'auto'
       }}>
-        <Flex 
-          wrap={wrap} 
+        <Flex
+          wrap={wrap}
           gap={16}
-          style={{ 
-            background: '#f0f0f0', 
-            padding: '20px', 
+          style={{
+            background: '#f0f0f0',
+            padding: '20px',
             borderRadius: '4px',
             minWidth: '600px',
             border: '2px dashed #ccc'
           }}
         >
           {Array.from({ length: itemCount }, (_, i) => (
-            <div 
-              key={i} 
-              style={{ 
-                minWidth: '150px', 
-                padding: '20px', 
-                background: `hsl(${i * 45}, 70%, 50%)`, 
-                color: 'white', 
+            <div
+              key={i}
+              style={{
+                minWidth: '150px',
+                padding: '20px',
+                background: `hsl(${i * 45}, 70%, 50%)`,
+                color: 'white',
                 borderRadius: '4px',
                 textAlign: 'center'
               }}
@@ -92,4 +92,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

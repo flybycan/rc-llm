@@ -45,6 +45,7 @@ export const NumberTransition: React.FC<NumberTransitionProps> = ({
 
     // 设置趋势
     if (colorful) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTrend(value > previousValue.current ? "increasing" : "decreasing");
 
       // 一段时间后重置趋势

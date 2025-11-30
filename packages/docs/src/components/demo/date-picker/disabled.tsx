@@ -1,7 +1,7 @@
 import React from 'react';
 import { DatePicker } from '@rc-llm/components';
 
-export default () => {
+export default function DatePickerDisabledDemo() {
   // 禁用今天之前的日期
   const disabledDate = (date: Date) => {
     const today = new Date();
@@ -10,12 +10,10 @@ export default () => {
   };
 
   return (
-    <div style={{ display: 'flex', gap: '24px' }}>
-      {/* 禁用状态 */}
+    <div style={{ width: '300px' }}>
       <DatePicker disabled />
-
-      {/* 禁用特定日期 */}
+      <div style={{ marginTop: 20 }} />
       <DatePicker disabledDate={disabledDate} />
     </div>
   );
-};
+}

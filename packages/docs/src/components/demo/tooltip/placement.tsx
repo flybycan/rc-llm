@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip } from '@rc-llm/components';
 
-export default () => {
+export default function TooltipPlacementDemo() {
   return (
     <div style={{ padding: '40px', display: 'flex', gap: '100px', flexWrap: 'wrap' }}>
       <Tooltip title="上方的提示" placement="top">
@@ -18,4 +18,4 @@ export default () => {
       </Tooltip>
     </div>
   );
-};
+}

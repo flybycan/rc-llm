@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@rc-llm/components";
 import { NumberTransition } from "@rc-llm/components";
 
-export default () => {
+export default function NumberTransitionColorfulDemo() {
   const [value, setValue] = useState(1000);
 
   const handleIncrease = () => {
@@ -29,4 +29,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

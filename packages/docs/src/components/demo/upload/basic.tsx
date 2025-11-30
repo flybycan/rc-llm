@@ -1,12 +1,12 @@
 import React from 'react';
 import { Upload } from '@rc-llm/components';
 
-export default () => {
-  const handleSuccess = (response: any, file: File) => {
+const UploadBasicDemo = () => {
+  const handleSuccess = (response: unknown, file: File) => {
     console.log('Upload success:', response, file);
   };
 
-  const handleError = (error: any, file: File) => {
+  const handleError = (error: unknown, file: File) => {
     console.error('Upload error:', error, file);
   };
 
@@ -30,3 +30,5 @@ export default () => {
     </Upload>
   );
 };
+
+export default UploadBasicDemo;

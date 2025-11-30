@@ -1,7 +1,7 @@
 import React from 'react';
 import { QRCode } from '@rc-llm/components';
 
-export default () => {
+export default function QRCodeErrorLevelDemo() {
   return (
     <div style={{ padding: '20px' }}>
       <h3>错误纠正级别对比</h3>
@@ -23,7 +23,7 @@ export default () => {
           <p>Level H - 高 (~30%)</p>
         </div>
       </div>
-      
+
       <h3 style={{ marginTop: '30px' }}>边距设置对比</h3>
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
         <div>
@@ -37,4 +37,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

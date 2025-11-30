@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FloatButton, Button } from "@rc-llm/components";
 import IframeDemo from "./IframeDemo";
 
-export default () => {
+export const FloatButtonScrollWrapper = () => {
   return (
     <IframeDemo height={220} title="滚动显示">
       <FloatButtonScrollDemo />
@@ -57,3 +57,5 @@ const FloatButtonScrollDemo = () => {
     </div>
   );
 };
+
+export default FloatButtonScrollWrapper;

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Cascader, Button } from '@rc-llm/components';
-import type { CascaderOption } from '@rc-llm/components';
 
-const options: CascaderOption[] = [
+const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -37,7 +36,7 @@ const options: CascaderOption[] = [
   },
 ];
 
-export default () => {
+export default function CascaderControlledDemo() {
   const [value, setValue] = useState<string[]>(['zhejiang', 'hangzhou', 'xihu']);
 
   const onChange = (val: string[]) => {
@@ -55,4 +54,4 @@ export default () => {
       <Button onClick={clearValue} style={{ marginLeft: 10 }}>Clear</Button>
     </>
   );
-};
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@rc-llm/components";
 import { NumberTransition } from "@rc-llm/components";
 
-export default () => {
+export default function NumberTransitionEasingDemo() {
   const [value, setValue] = useState(0);
   const [easing, setEasing] = useState<
     "linear" | "easeIn" | "easeOut" | "easeInOut"
@@ -59,4 +59,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

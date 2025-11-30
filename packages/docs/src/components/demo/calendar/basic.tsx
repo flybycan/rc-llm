@@ -1,15 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Calendar } from '@rc-llm/components';
 
-export default () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
+export default function CalendarBasicDemo() {
   return (
-    <div style={{ maxWidth: '400px' }}>
-      <Calendar
-        value={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-      />
+    <div style={{ width: '300px', border: '1px solid #d9d9d9', borderRadius: '4px' }}>
+      <Calendar />
     </div>
   );
-};
+}

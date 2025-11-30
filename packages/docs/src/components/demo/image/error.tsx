@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from '@rc-llm/components';
 
-export default () => {
+export default function ImageErrorDemo() {
   return (
     <Image
       src="https://gw.alipayobjects.com/zos/rmsportal/invalid-image.svg"
@@ -10,4 +10,4 @@ export default () => {
       height={200}
     />
   );
-};
+}

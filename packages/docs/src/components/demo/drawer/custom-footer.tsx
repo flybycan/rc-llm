@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Drawer } from '@rc-llm/components';
 
-export default () => {
+export default function DrawerCustomFooterDemo() {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -15,17 +15,21 @@ export default () => {
   return (
     <>
       <Button type="primary" onClick={showDrawer}>
-        Open Drawer with Custom Footer
+        Open
       </Button>
       <Drawer
-        title="Custom Footer Drawer"
+        title="Basic Drawer"
         placement="right"
         onClose={onClose}
         visible={visible}
         footer={
           <div style={{ textAlign: 'right' }}>
-            <Button onClick={onClose} style={{ marginRight: 8 }}>Cancel</Button>
-            <Button type="primary" onClick={onClose}>Submit</Button>
+            <Button onClick={onClose} style={{ marginRight: 8 }}>
+              Cancel
+            </Button>
+            <Button onClick={onClose} type="primary">
+              Submit
+            </Button>
           </div>
         }
       >
@@ -35,4 +39,4 @@ export default () => {
       </Drawer>
     </>
   );
-};
+}

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Cascader, Button } from '@rc-llm/components';
-import type { CascaderOption } from '@rc-llm/components';
 
-const options: CascaderOption[] = [
+const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -37,24 +36,16 @@ const options: CascaderOption[] = [
   },
 ];
 
-export default () => {
-  const [value, setValue] = useState<string[]>([]);
+export default function CascaderCustomTriggerDemo() {
+  const [text, setText] = React.useState('未选择');
 
-  const onChange = (val: string[]) => {
-    setValue(val);
-    console.log(val);
+  const onChange = (value: string[]) => {
+    setText(value.join(' / '));
   };
 
   return (
-    <Cascader
-      options={options}
-      value={value}
-      onChange={onChange}
-      renderTrigger={(val, selectedOptions) => (
-        <Button>
-          {selectedOptions.length > 0 ? selectedOptions.map(o => o.label).join(' / ') : 'Custom Trigger'}
-        </Button>
-      )}
-    />
+    <Cascader options={options} onChange={onChange}>
+      <Button>{text}</Button>
+    </Cascader>
   );
-};
+}

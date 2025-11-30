@@ -1,18 +1,23 @@
 import React from 'react';
 import { Carousel } from '@rc-llm/components';
 
-export default () => (
-  <div style={{ width: '100%', maxWidth: '600px' }}>
-    <Carousel>
-      <div style={{ height: '300px', background: '#364d79', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        第一页
-      </div>
-      <div style={{ height: '300px', background: '#64a19d', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        第二页
-      </div>
-      <div style={{ height: '300px', background: '#2a4365', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        第三页
-      </div>
-    </Carousel>
-  </div>
-);
+const contentStyle: React.CSSProperties = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
+
+export default function CarouselBasicDemo() {
+  return (
+    <div style={{ width: '400px' }}>
+      <Carousel>
+        <div style={contentStyle}>1</div>
+        <div style={contentStyle}>2</div>
+        <div style={contentStyle}>3</div>
+        <div style={contentStyle}>4</div>
+      </Carousel>
+    </div>
+  );
+}

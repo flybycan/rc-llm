@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, CSSProperties } from "react";
+import React, { useState, useRef, useEffect, useCallback, CSSProperties } from "react";
 import "./style.css";
 
 export interface DraggableFloatProps {
@@ -45,7 +45,7 @@ export const DraggableFloat: React.FC<DraggableFloatProps> = ({
     e.preventDefault();
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!isDragging || !floatRef.current) return;
 
     const dx = e.clientX - dragStartRef.current.x;
@@ -77,11 +77,11 @@ export const DraggableFloat: React.FC<DraggableFloatProps> = ({
     }
 
     setPosition({ x: newX, y: newY });
-  };
+  }, [isDragging, boundaryRef]);
 
-  const handleMouseUp = () => {
+  const handleMouseUp = useCallback(() => {
     setIsDragging(false);
-  };
+  }, []);
 
   useEffect(() => {
     if (isDragging) {

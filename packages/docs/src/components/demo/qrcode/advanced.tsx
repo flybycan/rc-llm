@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { QRCode } from '@rc-llm/components';
 import { Button } from '@rc-llm/components';
 
-export default () => {
+export default function QRCodeAdvancedDemo() {
   const [clickCount, setClickCount] = useState(0);
   const [showMask, setShowMask] = useState(true);
   const [maskOpacity, setMaskOpacity] = useState(0.8);
@@ -22,7 +22,7 @@ export default () => {
   return (
     <div style={{ padding: '20px' }}>
       <h3>高级配置演示</h3>
-      
+
       <div style={{ marginBottom: '20px' }}>
         <Button onClick={toggleMask} style={{ marginRight: '10px' }}>
           {showMask ? '隐藏遮罩' : '显示遮罩'}
@@ -32,7 +32,7 @@ export default () => {
         </Button>
         <span>点击次数: {clickCount}</span>
       </div>
-      
+
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
         <div>
           <QRCode
@@ -46,21 +46,21 @@ export default () => {
           />
           <p>可点击的二维码</p>
         </div>
-        
+
         <div>
           <QRCode
             value="https://github.com/flybycan/rc-llm"
             size={150}
             showMask={false}
-            style={{ 
-              border: '2px dashed #1677ff', 
+            style={{
+              border: '2px dashed #1677ff',
               borderRadius: '12px',
               padding: '10px'
             }}
           />
           <p>无遮罩 + 自定义边框</p>
         </div>
-        
+
         <div>
           <QRCode
             value="https://github.com/flybycan/rc-llm"
@@ -73,4 +73,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

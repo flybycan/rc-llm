@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import './style.css';
 
@@ -58,15 +58,15 @@ export const Popover: React.FC<PopoverProps> = ({
 
       const childRect = childRef.current.getBoundingClientRect();
       const popoverRect = popoverRef.current.getBoundingClientRect();
-      
+
       // 获取页面滚动位置
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-      
+
       // 计算父元素在文档中的绝对位置
       const childDocumentTop = childRect.top + scrollTop;
       const childDocumentLeft = childRect.left + scrollLeft;
-      
+
       // 获取容器边界（仅用于边界检查）
       let containerRect = {
         top: scrollTop,
@@ -76,7 +76,7 @@ export const Popover: React.FC<PopoverProps> = ({
         right: scrollLeft + window.innerWidth,
         bottom: scrollTop + window.innerHeight
       };
-      
+
       // 获取实际的容器元素（用于 center 模式）
       let actualContainer = null;
       if (containerId) {
@@ -121,13 +121,13 @@ export const Popover: React.FC<PopoverProps> = ({
 
       let popoverWidth = popoverRect.width;
       let popoverHeight = popoverRect.height;
-      
+
       // center 模式下，设置弹窗大小为容器大小
       if (placement === 'center' && actualContainer) {
         const padding = 16; // 内边距
         popoverWidth = containerRect.width - padding * 2;
         popoverHeight = containerRect.height - padding * 2;
-        
+
         popoverRef.current.style.width = `${popoverWidth}px`;
         popoverRef.current.style.height = `${popoverHeight}px`;
         popoverRef.current.style.maxWidth = 'none';
@@ -138,13 +138,13 @@ export const Popover: React.FC<PopoverProps> = ({
         if (autoAdjustSize) {
           const maxWidth = containerRect.width - 32;
           const maxHeight = containerRect.height - 32;
-          
+
           if (popoverWidth > maxWidth) {
             popoverRef.current.style.maxWidth = `${maxWidth}px`;
             popoverRef.current.style.width = 'auto';
             popoverWidth = maxWidth;
           }
-          
+
           if (popoverHeight > maxHeight) {
             popoverRef.current.style.maxHeight = `${maxHeight}px`;
             popoverRef.current.style.overflow = 'auto';
@@ -156,7 +156,7 @@ export const Popover: React.FC<PopoverProps> = ({
       // 计算基础位置（以父元素中心为基准，在文档坐标系中）
       const childCenterX = childDocumentLeft + childRect.width / 2;
       const childCenterY = childDocumentTop + childRect.height / 2;
-      
+
       let top = 0;
       let left = 0;
 
@@ -199,14 +199,14 @@ export const Popover: React.FC<PopoverProps> = ({
         const viewportTop = scrollTop;
         const viewportRight = scrollLeft + window.innerWidth;
         const viewportBottom = scrollTop + window.innerHeight;
-        
+
         // 水平边界检查
         if (left < viewportLeft + padding) {
           left = viewportLeft + padding;
         } else if (left + popoverWidth > viewportRight - padding) {
           left = viewportRight - popoverWidth - padding;
         }
-        
+
         // 垂直边界检查
         if (top < viewportTop + padding) {
           top = viewportTop + padding;
@@ -232,12 +232,12 @@ export const Popover: React.FC<PopoverProps> = ({
     };
   }, [placement, actualVisible, containerId, autoAdjustSize]);
 
-  const handleVisibleChange = (newVisible: boolean) => {
+  const handleVisibleChange = useCallback((newVisible: boolean) => {
     if (!isControlled) {
       setInternalVisible(newVisible);
     }
     onVisibleChange?.(newVisible);
-  };
+  }, [isControlled, onVisibleChange]);
 
   const handleMouseEnter = () => {
     if (trigger === 'hover') {
@@ -278,7 +278,7 @@ export const Popover: React.FC<PopoverProps> = ({
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [actualVisible, trigger]);
+  }, [actualVisible, trigger, handleVisibleChange]);
 
   return (
     <>

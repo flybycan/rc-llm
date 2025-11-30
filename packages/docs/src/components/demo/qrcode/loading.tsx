@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { QRCode } from '@rc-llm/components';
 import { Button } from '@rc-llm/components';
 
-export default () => {
+export default function QRCodeLoadingDemo() {
   const [loading, setLoading] = useState(false);
 
   const handleLoad = () => {
@@ -18,7 +18,7 @@ export default () => {
       <Button onClick={handleLoad} style={{ marginBottom: '20px' }}>
         模拟加载
       </Button>
-      
+
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
         <div>
           <QRCode
@@ -28,16 +28,16 @@ export default () => {
           />
           <p>默认加载状态</p>
         </div>
-        
+
         <div>
           <QRCode
             value="https://github.com/flybycan/rc-llm"
             size={150}
             loading={loading}
             loadingIcon={
-              <div style={{ 
-                width: '40px', 
-                height: '40px', 
+              <div style={{
+                width: '40px',
+                height: '40px',
                 border: '3px solid #f3f3f3',
                 borderTop: '3px solid #52c41a',
                 borderRadius: '50%',
@@ -50,4 +50,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

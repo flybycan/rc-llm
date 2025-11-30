@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Calendar } from '@rc-llm/components';
 
-export default () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+export default function CalendarRangeDemo() {
   const minDate = new Date();
   const maxDate = new Date();
-  maxDate.setMonth(maxDate.getMonth() + 3); // 设置最大可选日期为3个月后
+  maxDate.setMonth(maxDate.getMonth() + 3);
 
   return (
-    <div style={{ maxWidth: '400px' }}>
+    <div style={{ width: '300px', border: '1px solid #d9d9d9', borderRadius: '4px' }}>
       <Calendar
-        value={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
         minDate={minDate}
         maxDate={maxDate}
       />
     </div>
   );
-};
+}

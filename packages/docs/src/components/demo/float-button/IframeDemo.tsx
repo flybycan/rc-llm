@@ -49,7 +49,7 @@ const IframeDemo: React.FC<IframeDemoProps> = ({
 
     iframe.addEventListener("load", onLoad);
     return () => iframe.removeEventListener("load", onLoad);
-  }, []);
+  }, [children]); // Added children to dependency array
 
   // 当状态变化时更新iframe内容
   useEffect(() => {

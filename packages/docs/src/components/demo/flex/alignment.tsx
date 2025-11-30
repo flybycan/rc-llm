@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Flex, Button } from '@rc-llm/components';
 
-export default () => {
+export default function FlexAlignmentDemo() {
   const [justify, setJustify] = useState<'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly'>('flex-start');
   const [align, setAlign] = useState<'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline'>('flex-start');
   const [direction, setDirection] = useState<'row' | 'column'>('row');
@@ -19,7 +19,7 @@ export default () => {
   return (
     <div style={{ padding: '20px' }}>
       <h3>对齐方式演示（带控制面板）</h3>
-      
+
       <div style={{ marginBottom: '20px', padding: '20px', background: '#f5f5f5', borderRadius: '8px' }}>
         <h4>控制面板</h4>
         <Flex vertical gap={16}>
@@ -38,7 +38,7 @@ export default () => {
               ))}
             </Flex>
           </div>
-          
+
           <div>
             <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>交叉轴对齐 (align):</label>
             <Flex gap={8} wrapEnabled>
@@ -54,7 +54,7 @@ export default () => {
               ))}
             </Flex>
           </div>
-          
+
           <div>
             <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>方向 (direction):</label>
             <Flex gap={8}>
@@ -73,20 +73,20 @@ export default () => {
         </Flex>
       </div>
 
-      <div style={{ 
-        background: '#e6f4ff', 
-        padding: '20px', 
+      <div style={{
+        background: '#e6f4ff',
+        padding: '20px',
         borderRadius: '8px',
         minHeight: direction === 'column' ? '300px' : '200px'
       }}>
-        <Flex 
-          direction={direction} 
-          justify={justify} 
-          align={align} 
+        <Flex
+          direction={direction}
+          justify={justify}
+          align={align}
           gap={16}
-          style={{ 
-            background: '#f0f0f0', 
-            padding: '20px', 
+          style={{
+            background: '#f0f0f0',
+            padding: '20px',
             borderRadius: '4px',
             minHeight: direction === 'column' ? '200px' : '100px',
             border: '2px dashed #ccc'
@@ -108,4 +108,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

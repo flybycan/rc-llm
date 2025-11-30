@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from '@rc-llm/components';
 
-export default () => {
+export default function ImagePlaceholderDemo() {
   return (
     <Image
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjRtkFY.svg"
@@ -10,4 +10,4 @@ export default () => {
       height={200}
     />
   );
-};
+}

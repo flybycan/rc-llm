@@ -101,7 +101,7 @@ export const Flex: React.FC<FlexProps> = ({
     ...style,
   };
 
-  const containerClassName = `rc-llm-flex ${className}`.trim();
+  const containerClassName = `rc-llm-flex ${responsive ? 'rc-llm-flex-responsive' : ''} ${className}`.trim();
 
   return (
     <div className={containerClassName} style={containerStyle}>
